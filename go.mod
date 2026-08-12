@@ -7,7 +7,7 @@ toolchain go1.26.5
 require (
 	github.com/0xAX/notificator v0.0.0-20220220101646-ee9b8921e557
 	github.com/Masterminds/semver/v3 v3.4.0
-	github.com/ProtonMail/gluon v0.17.1-0.20260812080851-acf983b3eba5
+	github.com/ProtonMail/gluon v0.17.1-0.20260812114508-a2a1c48062cb
 	github.com/ProtonMail/go-autostart v0.0.0-20260210134425-40a9013f5ef4
 	github.com/ProtonMail/go-proton-api v0.4.1-0.20260805144911-aa74ef400fcd
 	github.com/ProtonMail/gopenpgp/v2 v2.10.0-proton
