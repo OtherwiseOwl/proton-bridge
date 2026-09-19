@@ -2,15 +2,7 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
 name: Go
-
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -23,3 +15,6 @@ jobs:
 
     - name: Build
       run: go mod vendor
+
+    - name: Create archive
+      run: tar -czvf vendor.tar.gz vendor
