@@ -4,22 +4,27 @@
 name: Go
 on:
   workflow_dispatch:
-
+env:
+  version: 3.27.0
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Set up Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v7
       with:
         go-version: '1.26'
     - name: Build
       run: go mod vendor
     - name: Create archive
-      run: tar -czvf vendor.tar.xz vendor
+      run: |
+        mkdir "proton-bridge-${{ env.version }}"
+        mv vendor "proton-bridge-${{ env.version }}"
+        tar -czvf "proton-bridge-${{ env.version }}".tar.xz" "proton-bridge-${{ env.version }}"
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
-        name: vendor.tar.xz
-        path: vendor.tar.xz
+        name: "proton-bridge-${{ env.version }}.tar.xz"
+        path: "proton-bridge-${{ env.version }}.tar.xz"
+        archive: false
