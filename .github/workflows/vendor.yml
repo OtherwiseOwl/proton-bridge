@@ -3,20 +3,23 @@
 
 name: Go
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
         go-version: '1.26'
-
     - name: Build
       run: go mod vendor
-
     - name: Create archive
-      run: tar -czvf vendor.tar.gz vendor
+      run: tar -czvf vendor.tar.xz vendor
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: vendor.tar.xz
+        path: vendor.tar.xz
