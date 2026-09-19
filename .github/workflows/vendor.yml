@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v7
+      with:
+         ref: 04e46eb4fbc1c7ef4425a920bfc352050da0606b
     - name: Set up Go
       uses: actions/setup-go@v7
       with:
@@ -21,7 +23,7 @@ jobs:
       run: |
         mkdir "proton-bridge-${{ env.version }}"
         mv vendor "proton-bridge-${{ env.version }}"
-        tar -czvf "proton-bridge-${{ env.version }}".tar.xz" "proton-bridge-${{ env.version }}"
+        tar -czvf "proton-bridge-${{ env.version }}.tar.xz" "proton-bridge-${{ env.version }}"
     - name: Upload artifact
       uses: actions/upload-artifact@v7
       with:
